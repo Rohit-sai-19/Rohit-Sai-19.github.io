@@ -4,148 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 500px;
-            text-align: center;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 16px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        label {
-            margin-bottom: 8px;
-            text-align: left;
-            width: 100%;
-            display: block;
-        }
-
-        input, select {
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: calc(100% - 16px);
-        }
-
-        input[type="checkbox"] {
-            margin-right: 5px;
-            vertical-align: middle;
-            margin-left: 0; /* Adjusted margin */
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-            cursor: pointer;
-            width: 50%;
-            margin: 0 auto;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        .entries {
-            margin-top: 20px;
-            text-align: left;
-        }
-        .entry {
-            margin-bottom: 16px;
-        }
-        .entry-heading {
-            font-weight: bold;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        .entry-info {
-            display: flex;
-            justify-content: space-between;
-            margin-right: 16px;
-        }
-        .entry-info span {
-            flex: 1;
-            margin-right: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div class="container">
-    <h2>Registration Form</h2>
-    <form action="#" method="post" id="registrationForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required>
-        <label style="display: flex; align-items: center; width: 100%; margin-bottom: 16px;">
-            <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
-            <span style="vertical-align: middle; margin-left: 5px;">I accept the Terms and Conditions</span>
-        </label>
-        <input type="submit" value="Submit">
-    </form>
-    <div class="entries" id="entries">
-        <div class="entry">
-            <div class="entry-heading">Entries</div>
-            <div class="entry-info">
-                <span><strong>Name:</strong></span>
-                <span><strong>Email:</strong></span>
-                <span><strong>Password:</strong></span>
-                <span><strong>DoB:</strong></span>
-                <span><strong>Accept Terms:</strong></span>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="#" method="post" id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <label style="display: flex; align-items: center; width: 100%; margin-bottom: 16px;">
+                <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+                <span style="vertical-align: middle; margin-left: 5px;">I accept the Terms and Conditions</span>
+            </label>
+            <input type="submit" value="Submit">
+        </form>
+        <div class="entries" id="entries">
+            <div class="entry">
+                <div class="entry-heading">Entries</div>
+                <div class="entry-info">
+                    <span><strong>Name:</strong></span>
+                    <span><strong>Email:</strong></span>
+                    <span><strong>Password:</strong></span>
+                    <span><strong>DoB:</strong></span>
+                    <span><strong>Accept Terms:</strong></span>
+                </div>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var dob = document.getElementById('dob').value;
-            var acceptTerms = document.getElementById('acceptTerms').checked;
-            var currentDate = new Date();
-            var birthDate = new Date(dob);
-            var age = currentDate.getFullYear() - birthDate.getFullYear();
-            if (age >= 18 && age <= 55) {
-                var entriesContainer = document.getElementById('entries');
-                var entry = document.createElement('div');
-                entry.className = 'entry';
-                entry.innerHTML =
-                    '<div class="entry-info">' +
-                    '<span>' + name + '</span>' +
-                    '<span>' + email + '</span>' +
-                    '<span>' + password + '</span>' +
-                    '<span>' + dob + '</span>' +
-                    '<span>' + (acceptTerms ? 'Yes' : 'No') + '</span>' +
-                    '</div>';
-                entriesContainer.appendChild(entry);
-                document.getElementById('registrationForm').reset();
-            } else {
-                alert('Age must be between 18 and 55 years.');
-            }
-        });
-    </script>
-</div>
-</body></html>
+    <script src="index.js"></script>
+</body>
+</html>
